@@ -3,13 +3,13 @@
 for file in *; do 
     [ -d "$file" ] || continue
     
-    if [ "$file" == "config" ]; then
+    if [ "$file" == "config" ] || [ "$file" == "examples" ] || [ "$file" == "algorithms" ] || [ "$file" == "code" ]; then
         continue
     fi
 
     echo "cd $file"; 
     cd ./$file
-    git lfs track *.xmind
+    # git lfs uninstall
     git lfs track *.zip
 
     git add --all
